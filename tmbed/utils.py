@@ -52,7 +52,7 @@ class ARGS:
 
 
 @dataclass
-class Protein():
+class Protein:
 
     header: str
     sequence: str

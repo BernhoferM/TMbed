@@ -1,9 +1,9 @@
-# TMbed - Transmembrane Protein Prediction with Embeddings
+# TMbed - Transmembrane proteins predicted through Language Model embeddings
 
 TMbed predicts transmembrane beta barrel and alpha helical proteins, the position and orientation of their transmembrane segments, and signal peptides.
 We use a Protein Language Model, [ProtT5-XL-U50](https://github.com/agemagician/ProtTrans) [1], to generate embeddings used as input for our method.
 
-Pre-Print: N.A.\
+Pre-Print: [bioRxiv](https://doi.org/10.1101/2022.06.12.495804)\
 Publication: N.A.
 
 

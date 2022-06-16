@@ -21,7 +21,7 @@ from transformers import logging
 from transformers import T5EncoderModel, T5Tokenizer
 
 
-class T5Encoder():
+class T5Encoder:
 
     def __init__(self, model_path, use_gpu=True):
         if not Path(model_path, 'config.json').exists():
