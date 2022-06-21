@@ -165,7 +165,8 @@ In tabular format, every protein is represented by a table containing sequence, 
     - `P(i)`: Probability for class 'non-transmembrane, inside'
     - `P(o)`: Probability for class 'non-transmembrane, outside'
 
-    `--out-format=2` uses the same class labels as `--out-format=0`, `--out-format=3` the same as `--out-format=1`.
+    `--out-format=2` uses the same class labels as `--out-format=0`.\
+    `--out-format=3` uses the same class labels as `--out-format=1`.
 
     ```
     >7acg_A|P18895|ALGE_PSEAE
