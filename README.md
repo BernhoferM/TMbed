@@ -6,7 +6,8 @@ We use a Protein Language Model, [ProtT5-XL-U50](https://github.com/agemagician/
 Pre-Print: [bioRxiv](https://doi.org/10.1101/2022.06.12.495804)\
 Publication: N.A.
 
-TMbed is also available via [bio_embeddings](https://github.com/sacdallago/bio_embeddings).
+TMbed is also available via [bio_embeddings](https://github.com/sacdallago/bio_embeddings).\
+Or you can try out TMbed using [Google Colab](https://colab.research.google.com/drive/1FbT2rQHYT67NNHCrGw4t0WMEHCY9lqR2?usp=sharing).
 
 
 ## Install
@@ -198,7 +199,7 @@ We provide precomputed predictions for the human proteome and for UniProtKB/Swis
 - [x] Install via GitHub
 - [ ] Publish pypi package
 - [x] Add data sets to GitHub
-- [ ] Create Google Colab Notebook
+- [x] Create Google Colab Notebook
 - [ ] Add training scripts to GitHub
 - [x] Integrate into [bio_embeddings](https://github.com/sacdallago/bio_embeddings)
 - [ ] Integrate into [PredictProtein](https://predictprotein.org/)
