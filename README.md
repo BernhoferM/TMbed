@@ -10,6 +10,15 @@ TMbed is also available via [bio_embeddings](https://github.com/sacdallago/bio_e
 Or you can try out TMbed using [Google Colab](https://colab.research.google.com/drive/1FbT2rQHYT67NNHCrGw4t0WMEHCY9lqR2?usp=sharing).
 
 
+# Table of Contents
+1. [Install](#install)
+2. [Usage](#usage)
+3. [Prediction output](#prediction-output)
+4. [Precomputed predictions](#precomputed-predictions)
+5. [Roadmap](#roadmap)
+6. [References](#references)
+
+
 ## Install
 
 1. Clone the repository and run directly with `python -m tmbed`.
