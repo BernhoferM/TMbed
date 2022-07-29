@@ -11,6 +11,7 @@ Or you can try out TMbed using [Google Colab](https://colab.research.google.com/
 
 
 # Table of Contents
+
 1. [Install](#install)
 2. [Usage](#usage)
 3. [Prediction output](#prediction-output)
