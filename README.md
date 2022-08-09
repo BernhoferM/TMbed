@@ -4,7 +4,7 @@ TMbed predicts transmembrane beta barrel and alpha helical proteins, the positio
 We use a Protein Language Model, [ProtT5-XL-U50](https://github.com/agemagician/ProtTrans) [1], to generate embeddings used as input for our method.
 
 Pre-Print: [bioRxiv](https://doi.org/10.1101/2022.06.12.495804)\
-Publication: N.A.
+Publication: [BMC Bioinformatics](https://doi.org/10.1186/s12859-022-04873-x)
 
 TMbed is also available via [bio_embeddings](https://github.com/sacdallago/bio_embeddings).\
 Or you can try out TMbed using [Google Colab](https://colab.research.google.com/drive/1FbT2rQHYT67NNHCrGw4t0WMEHCY9lqR2?usp=sharing).
