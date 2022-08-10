@@ -129,11 +129,12 @@ If you run into "out of memory" issues, try reducing the batch size.
 
 ## Prediction output
 
-TMbed supports four different output formats:
+TMbed supports five different output formats:
 - `0`: 3-line format with directed segments.
 - `1`: 3-line format with undirected segments.
 - `2`: Tabular format with directed segments.
 - `3`: Tabular format with undirected segments.
+- `4`: 3-line format with directed segments and explicit inside/outside prediction (a mix of format `0` and `1`).
 
 Predicted residue classes are encoded by single letters.\
 In 3-line format, every protein is represented by three lines: header, sequence, labels.\
@@ -168,7 +169,7 @@ In tabular format, every protein is represented by a table containing sequence, 
     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSiiiiiiiiiBBBBBBBBBBoooooooooooooooooBBBBBBBBBBBiiiiiBBBBBBBBBBoooooooooooooooooooooooooooooooBBBBBBBBBBiiiiiiiiiBBBBBBoooooooooooooooBBBBBBBBiiiiBBBBBBBBooooooooooooooooooooBBBBBBBBiiiiiiBBBBBBBBooooooooooooooooooooooooooBBBBBBBBiiiiiiiiiiBBBBBBBBBBooooooooooooooooooooooooooooBBBBBBBBBBiiiiiBBBBBBBBooooooooooooooooooooooooooooooooooooooooooooooBBBBBBBBBiiiiiBBBBBBBBooooooooooooooooooooooooooooBBBBBBBBBiiiiiiiiiiiiiiiiiiBBBBBBBBBBoooooooooooooooBBBBBBBBBi
     ```
 
-2. `--out-format=2` and `--out-format=3`
+3. `--out-format=2` and `--out-format=3`
 
     - `AA`: Amino acid
     - `PRD`: Predicted class label
@@ -193,6 +194,22 @@ In tabular format, every protein is represented by a table containing sequence, 
     V   S   0.00    0.00    0.99    0.00    0.00
     N   S   0.00    0.00    0.99    0.01    0.00
     ...
+    ```
+
+4. `--out-format=4`
+
+    - `B`: Transmembrane beta strand (IN-->OUT orientation)
+    - `b`: Transmembrane beta strand (OUT-->IN orientation)
+    - `H`: Transmembrane alpha helix (IN-->OUT orientation)
+    - `h`: Transmembrane alpha helix (OUT-->IN orientation)
+    - `S`: Signal peptide
+    - `i`: Non-Transmembrane, inside
+    - `o`: Non-Transmembrane, outside
+
+    ```
+    >7acg_A|P18895|ALGE_PSEAE
+    MNSSRSVNPRPSFAPRALSLAIALLLGAPAFAANSGEAPKNFGLDVKITGESENDRDLGTAPGGTLNDIGIDLRPWAFGQWGDWSAYFMGQAVAATDTIETDTLQSDTDDGNNSRNDGREPDKSYLAAREFWVDYAGLTAYPGEHLRFGRQRLREDSGQWQDTNIEALNWSFETTLLNAHAGVAQRFSEYRTDLDELAPEDKDRTHVFGDISTQWAPHHRIGVRIHHADDSGHLRRPGEEVDNLDKTYTGQLTWLGIEATGDAYNYRSSMPLNYWASATWLTGDRDNLTTTTVDDRRIATGKQSGDVNAFGVDLGLRWNIDEQWKAGVGYARGSGGGKDGEEQFQQTGLESNRSNFTGTRSRVHRFGEAFRGELSNLQAATLFGSWQLREDYDASLVYHKFWRVDDDSDIGTSGINAALQPGEKDIGQELDLVVTKYFKQGLLPASMSQYVDEPSALIRFRGGLFKPGDAYGPGTDSTMHRAFVDFIWRF
+    SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSiiiiiiiiiBBBBBBBBBBooooooooooooooooobbbbbbbbbbbiiiiiBBBBBBBBBBooooooooooooooooooooooooooooooobbbbbbbbbbiiiiiiiiiBBBBBBooooooooooooooobbbbbbbbiiiiBBBBBBBBoooooooooooooooooooobbbbbbbbiiiiiiBBBBBBBBoooooooooooooooooooooooooobbbbbbbbiiiiiiiiiiBBBBBBBBBBoooooooooooooooooooooooooooobbbbbbbbbbiiiiiBBBBBBBBoooooooooooooooooooooooooooooooooooooooooooooobbbbbbbbbiiiiiBBBBBBBBoooooooooooooooooooooooooooobbbbbbbbbiiiiiiiiiiiiiiiiiiBBBBBBBBBBooooooooooooooobbbbbbbbbi
     ```
 
 

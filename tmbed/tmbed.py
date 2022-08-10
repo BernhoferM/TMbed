@@ -232,8 +232,10 @@ def predict(fasta_file: Path = ARGS.fasta,
         pred_map = {0: 'B', 1: 'b', 2: 'H', 3: 'h', 4: 'S', 5: '.', 6: '.'}
     elif out_format in {OutFmt.F1, OutFmt.F3}:
         pred_map = {0: 'B', 1: 'B', 2: 'H', 3: 'H', 4: 'S', 5: 'i', 6: 'o'}
+    elif out_format in {OutFmt.F4}:
+        pred_map = {0: 'B', 1: 'b', 2: 'H', 3: 'h', 4: 'S', 5: 'i', 6: 'o'}
 
-    if out_format in {OutFmt.F0, OutFmt.F1}:
+    if out_format in {OutFmt.F0, OutFmt.F1, OutFmt.F4}:
         write_3_line(output_file, proteins, predictions, pred_map)
     elif out_format in {OutFmt.F2, OutFmt.F3}:
         write_tabular(output_file, proteins, predictions, pred_map)
