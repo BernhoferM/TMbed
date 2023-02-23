@@ -79,6 +79,8 @@ TMbed has two commands `embed` and `predict` that you can use to generate embedd
 
 The first time TMbed is used to generate embeddings, it will automatically download the [ProtT5-XL-U50](https://huggingface.co/Rostlab/prot_t5_xl_half_uniref50-enc) encoder model (2.25 GB) and save it inside the `models/t5/` subdirectory.
 
+Alternatively, you can use the `download` command to download the ProtT5 model without generating embeddings.
+
 
 ### Generate embeddings for a set of protein sequences
 
