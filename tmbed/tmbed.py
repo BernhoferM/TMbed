@@ -132,6 +132,7 @@ def predict_sequences(models, embeddings, mask):
 
     return pred.detach()
 
+
 @app.command()
 def download(use_gpu: bool = ARGS.use_gpu):
     '''
