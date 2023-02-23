@@ -132,6 +132,13 @@ def predict_sequences(models, embeddings, mask):
 
     return pred.detach()
 
+@app.command()
+def download(use_gpu: bool = ARGS.use_gpu):
+    '''
+    Download models if necessary.
+    '''
+    encoder = load_encoder((use_gpu and torch.cuda.is_available()))
+
 
 @app.command()
 def embed(fasta_file: Path = ARGS.fasta,
