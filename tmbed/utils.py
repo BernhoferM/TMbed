@@ -40,9 +40,9 @@ class OutFmt(str, Enum):
 class ARGS:
     fasta: Path = typer.Option(..., '--fasta', '-f',
                                help='Input FASTA file.')
-    emb_in: Path = typer.Option(None, '--embedings', '-e',
+    emb_in: Path = typer.Option(None, '--embeddings', '-e',
                                 help='Input embeddings file.')
-    emb_out: Path = typer.Option(..., '--embedings', '-e',
+    emb_out: Path = typer.Option(..., '--embeddings', '-e',
                                  help='Output embeddings file.')
     predictions: Path = typer.Option(..., '--predictions', '-p',
                                      help='Output predictions file.')
