@@ -221,8 +221,8 @@ In tabular format, every protein is represented by a table containing sequence, 
 
 We provide precomputed predictions for the human proteome and for UniProtKB/Swiss-Prot.
 
-- Human (21-04-2022): [Download](https://rostlab.org/public/tmbed/predictions/human_210422_tmbed.tar.gz)
-- UniProtKB/Swiss-Prot (11-05-2022): [Download](https://rostlab.org/public/tmbed/predictions/swissprot_110522_tmbed.tar.gz)
+- Human (21-04-2022): [Zenodo](https://zenodo.org/records/14705941)
+- UniProtKB/Swiss-Prot (11-05-2022): [Zenodo](https://zenodo.org/records/14705941)
 
 
 ## Roadmap
