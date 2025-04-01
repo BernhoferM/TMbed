@@ -1,3 +1,7 @@
+<a target="_blank" href="https://colab.research.google.com/github/BernhoferM/TMbed/blob/main/examples/example.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 # TMbed - Transmembrane proteins predicted through Language Model embeddings
 
 TMbed predicts transmembrane beta barrel and alpha helical proteins, the position and orientation of their transmembrane segments, and signal peptides.
