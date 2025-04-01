@@ -11,16 +11,14 @@ include = ["LICENSE", "tmbed/models/cnn/*.pt"]
 tmbed = "tmbed.tmbed:run"
 
 [tool.poetry.dependencies]
-python = "^3.9"
-h5py = "^3.2.1"
-numpy = "^1.20.3"
-sentencepiece = "^0.1.96"
-torch = "^1.10.2"
-tqdm = "^4.62.3"
-transformers = "^4.11.3"
-typer = "^0.4.1"
+python = "^3.13"
+h5py = "^3.13"
+numpy = "^2.2"
+torch = "^2.5"
+tqdm = "^4.67"
+transformers = "^4.50"
+typer = "^0.15"
 
-[tool.poetry.dev-dependencies]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
