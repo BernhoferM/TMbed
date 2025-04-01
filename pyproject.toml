@@ -11,7 +11,7 @@ include = ["LICENSE", "tmbed/models/cnn/*.pt"]
 tmbed = "tmbed.tmbed:run"
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "^3.11"
 h5py = "^3.13"
 numpy = "^2.2"
 torch = "^2.5"
