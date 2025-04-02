@@ -1,4 +1,4 @@
-<a target="_blank" href="https://colab.research.google.com/github/BernhoferM/TMbed/blob/main/examples/example.ipynb">
+<a target="_blank" href="https://colab.research.google.com/drive/1FbT2rQHYT67NNHCrGw4t0WMEHCY9lqR2?usp=sharing">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
