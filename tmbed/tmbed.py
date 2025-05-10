@@ -50,10 +50,13 @@ def init(use_gpu):
                     'to ":16:8" nor to ":4096:8". This can cause computations '
                     'on the GPU to be non-deterministic. For more information '
                     'see: https://docs.nvidia.com/cuda/cublas/index.html'
-                    '#cublasApi_reproducibility\n'), err=True)
+                    '#results-reproducibility\n'), err=True)
 
 
 def load_encoder(use_gpu):
+    if os.getenv('HF_HOME', None) is not None:
+        return T5Encoder(None, use_gpu)
+
     root_path = Path(__file__).parent
     model_path = Path(root_path, 'models/t5/')
 
@@ -70,7 +73,7 @@ def load_models():
 
         model.load_state_dict(torch.load(model_file)['model'])
 
-        model = model.eval().to(device)
+        model = model.eval().requires_grad_(False).to(device)
 
         models.append(model)
 
@@ -121,16 +124,15 @@ def predict_sequences(models, embeddings, mask):
 
     num_models = len(models)
 
-    with torch.no_grad():
-        pred = torch.zeros((B, 5, N), device=embeddings.device)
+    pred = torch.zeros((B, 5, N), device=embeddings.device)
 
-        for model in models:
-            y = model(embeddings, mask)
-            pred = pred + torch.softmax(y, dim=1)
+    for model in models:
+        y = model(embeddings, mask)
+        pred = pred + torch.softmax(y, dim=1)
 
-        pred = pred / num_models
+    pred = pred / num_models
 
-    return pred.detach()
+    return pred
 
 
 @app.command()

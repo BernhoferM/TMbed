@@ -55,19 +55,20 @@ Visit [TMVisDB](https://tmvisdb.predictprotein.org) [3] to see precomputed predi
 If you want to use GPU acceleration (highly recommended), please install the corresponding version of PyTorch: [Get Started](https://pytorch.org/get-started/locally/)
 
 _Reproducibility:_ TMbed tries to make predictions on GPU as deterministic as possible.\
-However, some things are left to the user, such as setting the [CUBLAS_WORKSPACE_CONFIG](https://docs.nvidia.com/cuda/cublas/index.html#cublasApi_reproducibility) EnvVar.\
+However, some things are left to the user, such as setting the [CUBLAS_WORKSPACE_CONFIG](https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility) EnvVar.\
 Regarding reproducibility in PyTorch, we also recommend their [notes on randomness and reproducibility](https://pytorch.org/docs/stable/notes/randomness.html#reproducibility).
 
 ### Requirements
 
 ```txt
-python = "^3.11"
-h5py = "^3.13"
-numpy = "^2.2"
-torch = "^2.5"
-tqdm = "^4.67"
-transformers = "^4.50"
-typer = "^0.15"
+python >= "3.9"
+h5py >= "3.2.1"
+numpy >= "1.20.3"
+sentencepiece >= "0.1.96"
+torch >= "1.10.2"
+tqdm >= "4.62.3"
+transformers >= "4.11.3"
+typer >= "0.4.1"
 ```
 
 ## Usage

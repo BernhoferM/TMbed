@@ -23,30 +23,34 @@ from transformers import T5EncoderModel, T5Tokenizer
 
 class T5Encoder:
 
-    def __init__(self, model_path, use_gpu=True):
-        if not Path(model_path, 'config.json').exists():
-            self._download_models(model_path)
+    def __init__(self, model_path=None, use_gpu=True):
+        self.model_name = 'Rostlab/prot_t5_xl_half_uniref50-enc'
+
+        if model_path is None:
+            model_name_or_path = self.model_name
+        else:
+            model_name_or_path = self._download_models(model_path)
 
         if use_gpu and torch.cuda.is_available():
-            self._load_models(model_path, torch.float16)
-            self.encoder_model = self.encoder_model.eval().cuda()
+            self._load_models(model_name_or_path, torch.float16)
+            self.encoder_model = self.encoder_model.cuda()
         else:
-            self._load_models(model_path, torch.float32)
-            self.encoder_model = self.encoder_model.eval()
+            self._load_models(model_name_or_path, torch.float32)
 
         self.aa_map = str.maketrans('BJOUZ', 'XXXXX')
 
     def _download_models(self, model_path):
-        model_name = 'Rostlab/prot_t5_xl_half_uniref50-enc'
+        if Path(model_path, 'config.json').exists():
+            return model_path
 
         Path(model_path).mkdir(parents=True, exist_ok=True)
 
         with tempfile.TemporaryDirectory(dir=model_path) as temp_dir:
-            model_t = T5Tokenizer.from_pretrained(model_name,
+            model_t = T5Tokenizer.from_pretrained(self.model_name,
                                                   cache_dir=temp_dir,
                                                   do_lower_case=False)
 
-            model_e = T5EncoderModel.from_pretrained(model_name,
+            model_e = T5EncoderModel.from_pretrained(self.model_name,
                                                      cache_dir=temp_dir,
                                                      torch_dtype=torch.float16)
 
@@ -55,12 +59,16 @@ class T5Encoder:
 
         del model_t, model_e
 
-    def _load_models(self, model_path, dtype):
-        self.tokenizer = T5Tokenizer.from_pretrained(model_path,
+        return model_path
+
+    def _load_models(self, model_name_or_path, dtype):
+        self.tokenizer = T5Tokenizer.from_pretrained(model_name_or_path,
                                                      do_lower_case=False)
 
-        self.encoder_model = T5EncoderModel.from_pretrained(model_path,
+        self.encoder_model = T5EncoderModel.from_pretrained(model_name_or_path,
                                                             torch_dtype=dtype)
+
+        self.encoder_model = self.encoder_model.eval().requires_grad_(False)
 
     def device(self):
         return self.encoder_model.device
@@ -83,8 +91,7 @@ class T5Encoder:
         input_ids = torch.tensor(tokens['input_ids'], device=device)
         attention_mask = torch.tensor(tokens['attention_mask'], device=device)
 
-        with torch.no_grad():
-            embeddings = self.encoder_model(input_ids=input_ids,
-                                            attention_mask=attention_mask)
+        embeddings = self.encoder_model(input_ids=input_ids,
+                                        attention_mask=attention_mask)
 
-        return embeddings.last_hidden_state.detach()
+        return embeddings.last_hidden_state
