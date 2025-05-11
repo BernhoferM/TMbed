@@ -57,7 +57,7 @@ class T5Encoder:
             model_t.save_pretrained(model_path)
             model_e.save_pretrained(model_path)
 
-        del model_t, model_e
+            del model_t, model_e
 
         return model_path
 
