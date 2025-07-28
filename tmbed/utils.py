@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
+import os
 import h5py
 import math
 import torch
@@ -50,6 +50,12 @@ class ARGS:
     batch_size: int = typer.Option(4000, help='Approximated batch size.')
     use_gpu: bool = typer.Option(True, help='Use GPU if available.')
     cpu_fallback: bool = typer.Option(True, help='Use CPU if GPU fails.')
+    num_threads: int = typer.Option(os.cpu_count(), '--threads', '-t',
+                                    help='Number of threads to use with PyTorch '
+                                         'on CPU. Ignored if using GPU.')
+    model_path: Path = typer.Option(None, '--model-dir', '-m', 
+                                    help='Path to the directory where the ProtT5 '
+                                         'model is or will be downloaded.')
 
 
 @dataclass
