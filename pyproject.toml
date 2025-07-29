@@ -1,6 +1,6 @@
 [project]
 name = "tmbed"
-version = "1.0.1"
+version = "1.0.2"
 description = "Transmembrane protein predictor using embeddings"
 authors = [{name = "Michael Bernhofer", email = "Michael.Bernhofer@tum.de"}]
 maintainers = [{name = "Michael Bernhofer", email = "Michael.Bernhofer@tum.de"}]
