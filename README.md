@@ -77,7 +77,7 @@ TMbed has two commands `embed` and `predict` that you can use to generate embedd
 
 ### First run
 
-The first time TMbed is used to generate embeddings, it will automatically download the [ProtT5-XL-U50](https://huggingface.co/Rostlab/prot_t5_xl_half_uniref50-enc) encoder model (2.25 GB) and save it inside the `models/t5/` subdirectory.
+The first time TMbed is used to generate embeddings, it will automatically download the [ProtT5-XL-U50](https://huggingface.co/Rostlab/prot_t5_xl_half_uniref50-enc) encoder model (2.25 GB) and save it inside a `models/t5` subdirectory relative to where the code is installed.
 
 Alternatively, you can use the `download` command to download the ProtT5 model without generating embeddings.
 
@@ -116,6 +116,10 @@ Each batch is constrained by **_N \* L<sup>1.5</sup> &le; BS<sup>1.5</sup>_**, w
 `--use-gpu / --no-use-gpu` controls whether TMbed will try to use an available GPU to speed up computations.
 
 `--cpu-fallback / --no-cpu-fallback` controls whether TMbed will try to use the CPU if it fails to compute the embeddings on GPU.
+
+`--threads` (or `-t`) sets the number of CPU threads used by PyTorch during embedding/prediction (only applies when using the CPU). By default, PyTorch decides how many threads to use based on available system resources.
+
+`--model-dir` (or `-m`) specifies the directory where the ProtT5-XL-U50 encoder model should be downloaded or loaded from.
 
 ### Hardware requirements
 
